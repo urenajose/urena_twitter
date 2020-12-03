@@ -3,7 +3,7 @@ from .models import DB
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE'] = 'sqlite:///my_db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///my_db.sqlite'
     DB.init_app(app)
 
     @app.route('/')
