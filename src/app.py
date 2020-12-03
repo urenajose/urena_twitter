@@ -1,0 +1,24 @@
+from flask import Flask, render_template
+from .models import DB
+
+def create_app():
+    app = Flask(__name__)
+    app.config['SQLALCHEMY_DATABASE'] = 'sqlite:///my_db.sqlite'
+    DB.init_app(app)
+
+    @app.rount('/')
+    def index():
+        return 'Index page'
+    
+    @app.route('/hello/')
+    @app.route('/hello/<name.')
+    def hello(name=None):
+        return render_template('my_template.html', name=name)
+    
+    return app
+
+# from flask import Flask
+# app = Flask(__name__)
+# @app.route('/')
+# def hello_world():
+#     return 'Hello, World!'
