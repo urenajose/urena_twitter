@@ -1,35 +1,18 @@
-# from flask_sqlalchemy import SQLAlchemy
-#
-# DB = SQLAlchemy
-#
-#
-# class User(DB.model):
-#     id = DB.Column(DB.integer, primary_key=True)
-#     name = DB.Column(DB.string(30), nullable=False)
-#
-#
-# class Tweet(DB.model):
-#     id = DB.column(DB.integer, primary_key=True)
-#     text = DB.column(DB.Unicode(280), nullable=False)
-#     user_id = DB.Column(DB.Integer, DB.Foreignkey('user.id'), nullable=False)
-#     user = DB.relationship('User', backref=DB.backref('tweets',lazy=True))
-#
-#     def __repr__(self):
-#         return f'<Tweet: {self.text}>'
-
 from flask_sqlalchemy import SQLAlchemy
 
 DB = SQLAlchemy()
 
+
 class User(DB.Model):
-	id = DB.Column(DB.Integer, primary_key=True)
-	name = DB.Column(DB.String(30), nullable=False)
+    id = DB.Column(DB.Integer, primary_key=True)
+    name = DB.Column(DB.String(30), nullable=False)
+
 
 class Tweet(DB.Model):
-	id = DB.Column(DB.Integer, primary_key=True)
-	text = DB.Column(DB.Unicode(280), nullable=False)
-	user_id = DB.Column(DB.Integer, DB.ForeignKey('user.id'), nullable=False)
-	user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
+    id = DB.Column(DB.Integer, primary_key=True)
+    text = DB.Column(DB.Unicode(280), nullable=False)
+    user_id = DB.Column(DB.Integer, DB.ForeignKey('user.id'), nullable=False)
+    user = DB.relationship('User', backref=DB.backref('tweets',lazy=True))
 
-	def __repr__(self):
-		return f'<Tweet: {self.text}>'
+    def __repr__(self):
+        return f'<Tweet: {self.text}>'
