@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
+python-decouple = "*"
+spacy = "*"
+tweepy = "*"
 
 [dev-packages]
 

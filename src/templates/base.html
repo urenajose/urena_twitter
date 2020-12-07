@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Twittoff - {{title}}
+    </title>
+</head>
+<body>
+    <p>{{title}}</p>
+    <url>
+        {% for user in users%}
+        <li>{{user.id}} :: {{user.name}}</li>
+        {% endfor %}
+    </url>
+</body>
+</html>
+
