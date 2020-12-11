@@ -9,6 +9,7 @@ flask-sqlalchemy = "*"
 python-decouple = "*"
 spacy = "*"
 tweepy = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
