@@ -1,7 +1,7 @@
 from os import getenv
 from flask import Flask, render_template, request
 from .models import DB, User
-from .twitter import add_or_update_user
+from .twitter import add_or_update_user, update_all_users
 from .predict import predict_user
 
 def create_app():
@@ -39,7 +39,7 @@ def create_app():
     @app.route('/update')
     def update():
         update_all_users()
-        return render_templates('base.html',
+        return render_template('base.html',
                                 title='All Tweets Updated!!!',
                                 users=User.query.all())
 
